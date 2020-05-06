@@ -58,6 +58,32 @@ class Header extends Component {
       );
     
 
+    // if (cookie.load("buyer")) {
+    //   buyerTab = (
+    //     <span>
+    //       <span>
+    //         <a href="/buyer-order" className="btn btn-sm lyp-btn">
+    //           Orders
+    //         </a>
+    //       </span>
+    //       <span>
+    //         <a href="/cart-details" className="btn btn-sm lyp-btn">
+    //           Cart
+    //         </a>
+    //       </span>
+    //       <span>
+    //         <a
+    //           className="btn btn-sm lyp-btn"
+    //           href="/login"
+    //           onClick={this.handleLogout}
+    //         >
+    //           Logout
+    //         </a>
+    //       </span>
+    //     </span>
+    //   );
+    // }
+
     let username = cookie.load("cookie");
     if (cookie.load("cookie")) {
       loggedInUserContent = (
@@ -77,21 +103,29 @@ class Header extends Component {
     }
 
     return (
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
-    </div>
-  </div>
-</nav>
+      <div className="container header-container">
+        <div className="header-bar">
+          <a href="/home">
+            <img
+              src={require("../../Images/DriveSafeLogo.jpg")}
+              style={{ width: 200, height: 200 }}
+              alt="logo-grubhub"
+            />
+          </a>
 
+          {loggedInUserContent}
+          {ownerTab}
+
+          <a href="/home">
+            <img
+              src={require("../../Images/car.jpg")}
+              style={{ width: 200, height: 200 }}
+              alt="logo"
+              className="flt-right"
+            />
+          </a>
+        </div>
+      </div>
     );
   }
 }
