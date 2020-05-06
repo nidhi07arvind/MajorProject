@@ -1,28 +1,35 @@
 import React, { Component } from "react";
 import axios from "axios";
-import cookie from "react-cookies";
 import { Redirect } from "react-router";
 import Header from "../Header/Header";
 import { Button, Dropdown, Row, Col, Container } from "react-bootstrap";
 
-class Login extends Component {
+class Signup extends Component {
   constructor() {
     super();
 
     this.state = {
+      FirstName: "",
       Email: "",
       Password: "",
-      formValidationFailure: false,
-      isValidationFailure: true,
+      isNewUserCreated: false,
+      validationError: false,
       errorRedirect: false
     };
 
-    //Bind events
+    //bind
+    this.firstNameChangeHandler = this.firstNameChangeHandler.bind(this);
     this.emailChangeHandler = this.emailChangeHandler.bind(this);
     this.passwordChangeHandler = this.passwordChangeHandler.bind(this);
-    this.submitLogin = this.submitLogin.bind(this);
     this.signup = this.signup.bind(this);
+    this.submitLogin = this.submitLogin.bind(this);
   }
+
+  firstNameChangeHandler = e => {
+    this.setState({
+      FirstName: e.target.value
+    });
+  };
 
   emailChangeHandler = e => {
     this.setState({
@@ -36,91 +43,104 @@ class Login extends Component {
     });
   };
 
-  submitLogin = e => {
-    e.preventDefault();
-
-    var username = "admin";
-    var password = "admin";
-
-    var data = {
-      Email: this.state.Email,
-      Password: this.state.Password,
-    };
-
-    if (this.state.Email === username && this.state.Password === password) {
-      this.setState({
-        formValidationFailure: true,
-        authFlag:true
-      });
-      localStorage.setItem("authFlag", this.state.authFlag);
-      window.location = "/home";
-    } 
-  };
-
-  signup = e =>{
-    window.location = "/signup";
+  submitLogin = e =>{
+      window.location = "/login";
   }
 
+  signup = e => {
+    if (
+      this.state.FirstName === "" ||
+      this.state.Email === "" ||
+      this.state.Password === ""
+    ) {
+      this.setState({
+        validationError: true
+      });
+    } else {
+      var data = {
+        FirstName: this.state.FirstName,
+        Email: this.state.Email,
+        Password: this.state.Password,
+        Accounttype: 1
+      };
+
+      e.preventDefault();
+
+      axios.defaults.withCredentials = true;
+
+      axios.post("http://localhost:3001/signup", data).then(response => {
+        if (response.status === 200) {
+          this.setState({
+            isNewUserCreated: true
+          });
+        } else {
+          this.setState({
+            isNewUserCreated: false
+          });
+        }
+      });
+    }
+    window.location = "/login";
+  };
+
   render() {
-    let redrirectVar = null;
-    if (this.state.authFlag) {
-      redrirectVar = <Redirect to="/home" />;
+    let redirectVar = null;
+    if (this.state.isNewUserCreated === true) {
+      redirectVar = <Redirect to="/login" />;
     }
 
-    if (this.state.errorRedirect) {
-      redrirectVar = <Redirect to="/error" />;
+    if (this.state.errorRedirect === true) {
+      redirectVar = <Redirect to="/error" />;
     }
 
-    let errorPanel = null;
-    if (!this.state.isValidationFailure) {
-      errorPanel = (
+    let errorAlert = null;
+    if (this.state.validationError) {
+      errorAlert = (
         <div>
           <div className="alert alert-danger" role="alert">
-            <strong>Validation Error!</strong> Username and Password doesn't
-            match!
+            <strong>Error!</strong> Fill all the fields to proceed!
           </div>
         </div>
       );
     }
-    let formErrorPanel = null;
-    console.log("FormvalidationFailure", this.state.formValidationFailure);
-    if (this.state.formValidationFailure) {
-      formErrorPanel = (
-        <div>
-          <div className="alert alert-danger" role="alert">
-            <strong>Validation Error!</strong> Username and Password are
-            required!
-          </div>
-        </div>
-      );
-    }
+
     return (
       <div>
-        <div className="Hero-Image">
-        <Container>
-        
+          <div className="Hero-Image">
+          <Container>
+
           <div className="container content">
             {/* <div className="login-container">
               <div>
-                <p font-size>Log in to DriveSafe</p>
+                <p>Sign up for GrubHub</p>
                 <p>
-                  Need an account? <a href="/sign-up">Sign Up</a>
+                  Already have an account? <a href="/login">Login</a>
                 </p>
               </div> */}
-              <div className="login-form-container col-lg-4 col-md-4 col-sm-12 offset-lg-4 offset-md-4 border">
-                <div className="login-form-heading input-group pad-top-10 input-group-lg">
-                  Account Login
+
+              <div className="login-form-container col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3 border">
+               <div className="login-form-heading input-group pad-top-10 input-group-lg">
+               Sign me Up!
                 </div>
                 <hr />
-                
+                <div className="form-group login-form-control pad-top-20">
+                  <input
+                    type="text"
+                    name="firstname"
+                    id="firstname"
+                    className="form-control form-control-lg"
+                    placeholder="First Name"
+                    onChange={this.firstNameChangeHandler}
+                    required
+                  />
+                </div>
                 <div className="form-group login-form-control">
-                  
                   <input
                     type="text"
                     name="email"
                     id="email"
                     className="form-control form-control-lg"
-                    placeholder="Username"
+                    placeholder="Email Address"
                     onChange={this.emailChangeHandler}
                     required
                   />
@@ -136,40 +156,31 @@ class Login extends Component {
                     required
                   />
                 </div>
-               
-        
                 <div className="form-group login-form-control">
                   <button
-                    className="btn-login col-md-12 col-sm-12"
-                    // btn btn-login col-lg-12 col-md-12 col-sm-12
+                    className="btn-login col-lg-12 col-md-12 col-sm-12"
+                    onClick={this.signup}
+                  >
+                    Signup{" "}
+                  </button>
+                </div>
+                <div className="form-group login-form-control">
+                  <button
+                    className="btn-login col-lg-12 col-md-12 col-sm-12"
                     onClick={this.submitLogin}
                   >
                     Login{" "}
                   </button>
                 </div>
-                <div className="form-group login-form-control">
-                  <button
-                    className="btn-login col-md-12 col-sm-12"
-                    // btn btn-login col-lg-12 col-md-12 col-sm-12
-                    onClick={this.signup}>
-                    <a href="/sign-up"></a> 
-                    Signup{" "}
-                  </button>
-                </div>
-                <div className="form-group login-form-control">
-                  <a href="" className="">
-                    Forgot Password?
-                  </a>
-                </div>
                 <hr />
                 <div className="form-group login-form-control">
-                  <button className="fb-btn col-lg-12 col-md-12 col-md-12">
+                  <button className="fb-btn col-lg-12 col-md-12 col-sm-12">
                     <img
                       className="fb-logo flt-left"
                       src={require("../../Images/fb.png")}
                       alt="fb-logo"
                     ></img>
-                    Login with Facebook
+                    Log in with Facebook
                   </button>
                 </div>
                 <div className="form-group login-form-control">
@@ -181,17 +192,17 @@ class Login extends Component {
                         alt="google-logo"
                       ></img>
                     </span>
-                    Login with Google
+                    Log in with Google
                   </button>
                 </div>
               </div>
-            </div> 
-          {/* </div> */}
-      </Container>
-      </div>
-      </div>
+            </div>
+          </Container>
+          </div> 
+        </div>
       
     );
   }
 }
-export default Login;
+
+export default Signup;

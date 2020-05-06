@@ -6,6 +6,7 @@ import Days from "./Charts/Days";
 import Severity from "./Charts/Severity";
 import Feature from "./Charts/Feature";
 import Dashboard from "./Dashboard/Dashboard";
+import Signup from "./Signup/Signup";
 
 class Main extends Component {
     constructor(props) {
@@ -71,6 +72,7 @@ class Main extends Component {
           <Route path="/severity" component={Severity} />
           <Route path="/feature" component={Feature} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/signup" component={Signup} />
         </div>
       );
     }
