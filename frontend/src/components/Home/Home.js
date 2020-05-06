@@ -4,6 +4,7 @@ import "../../App.css";
 import { Redirect } from "react-router";
 import { Button, Dropdown, Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import SidePanel from "../SidePanel/SidePanel";
 
 class Home extends Component {
   constructor() {
@@ -48,6 +49,7 @@ class Home extends Component {
       <>
       <div className="Hero-Image">
         {redirectVar}
+        <SidePanel/>
         <Container>
           <Row style={{ margin: "2%" }}>
             <Col style={{ textAlign: "center" }}>

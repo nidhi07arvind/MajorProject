@@ -90,7 +90,7 @@ class Login extends Component {
     }
     return (
       <div>
-        <Header />
+        {/* <Header /> */}
         <div className="container fill-graywhite">
           {redrirectVar}
           <div className="container content">

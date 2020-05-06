@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import Header from "./Header/Header";
 import Login from "./Login/Login";
 import Home from "./Home/Home";
+import Days from "./Charts/Days";
+import Severity from "./Charts/Severity";
+import Feature from "./Charts/Feature";
+import Dashboard from "./Dashboard/Dashboard";
 
 class Main extends Component {
     constructor(props) {
@@ -64,21 +67,10 @@ class Main extends Component {
             path="/home"
           />
           <Route path="/login" component={Login} />
-          
-          <Route
-            // render={() => {
-            //   return (
-            //     // <DisplayItems
-            //     //   handleInputChange={this.handleInputChange}
-            //     //   searchText={this.state.searchText}
-            //     //   isSearch={this.state.isSearch}
-            //     //   searchClick={this.handlesearchClick}
-            //     // />
-            //   );
-            // }}
-            path="/display-items"
-          />
-          
+          <Route path="/days" component={Days} />
+          <Route path="/severity" component={Severity} />
+          <Route path="/feature" component={Feature} />
+          <Route path="/dashboard" component={Dashboard} />
         </div>
       );
     }
