@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import CanvasJSReact from "../Canvas/canvasjs.react";
-import { Container } from "react-bootstrap";
-//var CanvasJSReact = require('../Canvas/canvasjs.react');
+import Header2 from "../Header/Header2";
+import { Button, Dropdown, Row, Col, Container } from "react-bootstrap";
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
@@ -9,7 +9,7 @@ var dps = [];
 //var updateInterval = 5000;
 //var label = dps.label;
 
-class Days extends Component {
+class DaysChart extends Component {
 
 	constructor(){
 		super();
@@ -29,7 +29,7 @@ class Days extends Component {
 		var currsum =0;
 		for(var i=0;i<6;i++){
 			//r[i]=Math.floor(Math.random()*(101-(7-i-1)-currsum-1+1)+1);
-			a=Math.floor(Math.random()*(101-(7-i-1)-currsum-5+1)+5);
+			a=Math.floor(Math.random()*(101-(7-i-1)-currsum-1+1)+1);
 			s=r[i].label;
 			console.log(a);
 			console.log(s);
@@ -78,7 +78,8 @@ class Days extends Component {
 			},
 			data: [{
 				type: "pie",
-				indexLabel: "{label}: {y}%",		
+                indexLabel: "{label}: {y}%",
+                		
 				//startAngle: -90,
 				dataPoints: dps
 			}]
@@ -86,18 +87,21 @@ class Days extends Component {
 		
 		return (
 		<div>
-            <Container>
-			<div className="container content col-lg-200">
-				<div className=" login-form-container col-lg-50 col-lg-50 col-lg-50">
+            <Header2/>&nbsp;
+				<Container>
+				<div className="container content col-lg-200">
+				<div className=" chart-container col-lg-200 col-lg-400 col-lg-600 ">
+            
 			<CanvasJSChart options = {options} 
 				onRef={ref => this.chart = ref}
 			/>
 			</div>
-			</div>
-			</Container>
 		</div>
+        </Container>
+        </div>
+
 		);
 	}
 }
  
-export default Days;     
+export default DaysChart;     

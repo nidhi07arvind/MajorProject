@@ -1,13 +1,14 @@
 import React, {Component} from "react";
 import CanvasJSReact from "../Canvas/canvasjs.react";
-import { Container } from "react-bootstrap";
+import Header2 from "../Header/Header2";
+import { Button, Dropdown, Row, Col, Container } from "react-bootstrap";
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 var dps=[];
 
 
-class Feature extends Component{
+class FeatureChart extends Component{
 
     addSymbols(e){
 		var suffixes = ["", "K", "M", "B"];
@@ -47,20 +48,20 @@ class Feature extends Component{
 		}
         return(
             <div>
+                <Header2/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<Container>
-			<div className="container content col-lg-200">
-				<div className=" login-form-container col-lg-50 col-lg-50 col-lg-50">
+				<div className="container content col-lg-200">
+				<div className=" chart-container col-lg-200 col-lg-400 col-lg-600 ">
                 <CanvasJSChart options = {options}
                 onRef={ref => this.chart = ref}
                 />
             </div>
-			</div>
-			</Container>
-			</div>
-
+            </div>
+            </Container>
+            </div>
         );
 
     }
 }
 
-export default Feature;
+export default FeatureChart;

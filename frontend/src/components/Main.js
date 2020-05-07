@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Login from "./Login/Login";
 import Home from "./Home/Home";
-import Days from "./Charts/Days";
-import Severity from "./Charts/Severity";
-import Feature from "./Charts/Feature";
+import DaysChart from "./Charts/DaysChart";
+import SeverityChart from "./Charts/SeverityChart";
+import FeatureChart from "./Charts/FeatureChart";
 import Dashboard from "./Dashboard/Dashboard";
 import Signup from "./Signup/Signup";
+import Alerts from "./Alerts/Alerts";
 
 class Main extends Component {
     constructor(props) {
@@ -68,11 +69,12 @@ class Main extends Component {
             path="/home"
           />
           <Route path="/login" component={Login} />
-          <Route path="/days" component={Days} />
-          <Route path="/severity" component={Severity} />
-          <Route path="/feature" component={Feature} />
+          <Route path="/days-chart" component={DaysChart} />
+          <Route path="/severity-chart" component={SeverityChart} />
+          <Route path="/feature-chart" component={FeatureChart} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/signup" component={Signup} />
+          <Route path="/alerts" component={Alerts} />
         </div>
       );
     }

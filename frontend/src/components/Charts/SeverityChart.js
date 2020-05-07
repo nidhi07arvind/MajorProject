@@ -9,7 +9,7 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 var dps=[];
 
 
-class Severity extends Component{
+class SeverityChart extends Component{
 
     constructor(){
 		super();
@@ -67,12 +67,10 @@ class Severity extends Component{
         }
         return(
             <div>
-				
+				<Header2/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<Container>
 				<div className="container content col-lg-200">
-				<div className=" login-form-container col-lg-40 col-lg-40 col-lg-40">
-					{/* login-form-container col-lg-10 col-lg-10 col-lg-10 offset-lg */}
-					{/* chart-container col-lg-200 col-lg-400 col-lg-600 */}
+				<div className=" chart-container col-lg-200 col-lg-400 col-lg-600 ">
                 <CanvasJSChart options = {options}
 				onRef={ref => this.chart = ref}
                 />
@@ -85,8 +83,4 @@ class Severity extends Component{
     }
 }
 
-
-
-
-export default Severity;
-
+export default SeverityChart;

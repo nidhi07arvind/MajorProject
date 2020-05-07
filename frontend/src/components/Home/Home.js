@@ -13,6 +13,9 @@ class Home extends Component {
     this.state = {
       dropdown: [],
     };
+
+
+    this.submitPredict = this.submitPredict.bind(this);
   }
   //get the books data from backend
   componentDidMount() {}
@@ -26,6 +29,10 @@ class Home extends Component {
     this.setState({ [e.target.id]: e.target.name });
   };
 
+  submitPredict = e =>{
+    window.location = "/severity-chart";
+  }
+
   render() {
     let redirectVar = null;
 
@@ -36,7 +43,7 @@ class Home extends Component {
       
       <div>
         <Header/>
-        <div className="Hero-Image">
+        <div className="Hero-Image2">
         <Container>
         
           <div className="container content">
@@ -117,16 +124,18 @@ class Home extends Component {
                   <button
                     className="btn-login col-md-12 col-sm-12"
                     // btn btn-login col-lg-12 col-md-12 col-sm-12
-                    onClick={this.submitLogin}
+                    onClick={this.submitPredict}
                   >
-                    Login{" "}
+                    Predict{" "}
                   </button>
                 </div>
               </div>
             </div> 
           {/* </div> */}
       </Container>
+      
       </div>
+      
       </div>
     );
   }

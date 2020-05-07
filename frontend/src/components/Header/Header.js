@@ -22,74 +22,71 @@ class Header extends Component {
   };
 
   render() {
-    let loggedInUserContent = null;
-    let ownerTab = null;
-    let buyerTab = null;
+    // let loggedInUserContent = null;
+    // let ownerTab = null;
+    // let buyerTab = null;
 
     
-      ownerTab = (
-        <span>
-          <span>
-            <a href="/add-items" className="btn btn-sm lyp-btn">
-              Add Items
-            </a>
-          </span>
-          <span>
-            <a href="/owner-dashboard" className="btn btn-sm lyp-btn">
-              Dashboard
-            </a>
-          </span>
-          <span>
-            <a href="/owner-order-details" className="btn btn-sm lyp-btn">
-              Orders
-            </a>
-          </span>
+      // ownerTab = (
+      //   <span>
+      //     <span>
+      //       <a href="/add-items" className="btn btn-sm lyp-btn">
+      //         Add Items
+      //       </a>
+      //     </span>
+      //     <span>
+      //       <a href="/owner-dashboard" className="btn btn-sm lyp-btn">
+      //         Dashboard
+      //       </a>
+      //     </span>
+      //     <span>
+      //       <a href="/owner-order-details" className="btn btn-sm lyp-btn">
+      //         Orders
+      //       </a>
+      //     </span>
 
-          <span>
-            <a
-              className="btn btn-sm lyp-btn"
-              href="/login"
-              onClick={this.handleLogout}
-            >
-              Logout
-            </a>
-          </span>
-        </span>
-      );
+      //     <span>
+      //       <a
+      //         className="btn btn-sm lyp-btn"
+      //         href="/login"
+      //         onClick={this.handleLogout}
+      //       >
+      //         Logout
+      //       </a>
+      //     </span>
+      //   </span>
+      // );
     
 
-    let username = cookie.load("cookie");
-    if (cookie.load("cookie")) {
-      loggedInUserContent = (
-        <span className="header-bar-tabs">
-          <a className="btn btn-sm lyp-btn" href="/profile-details">
-            Profile
-          </a>
-          {ownerTab}
-          {buyerTab}
-          <span>
-            <a>Welcome! {username}</a>
+    // let username = cookie.load("cookie");
+    // if (cookie.load("cookie")) {
+    //   loggedInUserContent = (
+    //     <span className="header-bar-tabs">
+    //       <a className="btn btn-sm lyp-btn" href="/profile-details">
+    //         Profile
+    //       </a>
+    //       {ownerTab}
+    //       {buyerTab}
+    //       <span>
+    //         <a>Welcome! {username}</a>
 
-            <div></div>
-          </span>
-        </span>
-      );
-    }
+    //         <div></div>
+    //       </span>
+    //     </span>
+    //   );
+    // }
 
     return (
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+          <a class="navbar logo-link" href="#">Drive Safe</a>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
-    </div>
+    <form class="form-inline my-2 my-lg-0 ml-auto">
+    <a class="navbar navbar-link" href="/alerts">Alerts</a>
+      <a class="navbar navbar-link" href="/feature-chart">Profile</a>
+      <a class="navbar navbar-link" href="/feature-chart">Logout</a>
+    </form>
   </div>
+  
 </nav>
 
     );

@@ -4,13 +4,25 @@ import Days from "../Charts/Days";
 import Severity from "../Charts/Severity";
 import Feature from "../Charts/Feature";
 import { Link } from "react-router-dom";
+import Header2 from "../Header/Header2";
 
 class Dashboard extends Component{
 
 render(){
     return (
         <div className="App">
+          <Header2/>&nbsp;
           <div className="main chart-wrapper">
+            <Severity
+            //   data={this.state.data[1].data}
+            //   title={this.state.data[1].title}
+            //   color="#70CAD1"
+            />
+            <Link to={"/severity"}>
+            <a href="/days">Click Here</a>
+          </Link>
+          </div>
+          <div className="sub chart-wrapper">
             <Days
             //   data={this.state.data[0].data}
             //   title={this.state.data[0].title}
@@ -20,16 +32,6 @@ render(){
             <a href="/days">Click Here</a>
           </Link>
             
-          </div>
-          <div className="sub chart-wrapper">
-            <Severity
-            //   data={this.state.data[1].data}
-            //   title={this.state.data[1].title}
-            //   color="#70CAD1"
-            />
-            <Link to={"/severity"}>
-            <a href="/days">Click Here</a>
-          </Link>
           </div>
           <div className="sub chart-wrapper">
             <Feature
