@@ -8,6 +8,7 @@ import FeatureChart from "./Charts/FeatureChart";
 import Dashboard from "./Dashboard/Dashboard";
 import Signup from "./Signup/Signup";
 import Alerts from "./Alerts/Alerts";
+import Profile from "./Profile/Profile";
 
 class Main extends Component {
     constructor(props) {
@@ -75,6 +76,7 @@ class Main extends Component {
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/signup" component={Signup} />
           <Route path="/alerts" component={Alerts} />
+          <Route path="/profile" component={Profile} />
         </div>
       );
     }

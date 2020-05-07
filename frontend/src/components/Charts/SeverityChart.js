@@ -67,17 +67,19 @@ class SeverityChart extends Component{
         }
         return(
             <div>
-				<Header2/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<Header2/>
+				<div style={{height:'900px'}}className="Hero-Image2">
 				<Container>
-				<div className="container content col-lg-200">
-				<div className=" chart-container col-lg-200 col-lg-400 col-lg-600 ">
+				<div style={{paddingTop: '200px'}}className="container content">
+				<div style={{paddingBottom: '0px'}}className=" chart-container col-lg-200 col-lg-200 col-lg-200 ">
                 <CanvasJSChart options = {options}
 				onRef={ref => this.chart = ref}
                 />
 				</div>
 				</div>
 				</Container>
-            </div>
+				</div>
+             </div>
         );
 
     }

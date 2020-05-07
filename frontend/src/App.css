@@ -82,7 +82,9 @@
 
 .chart-container {
   background-color: white;
-  height: 2000px;
+  height: 400px;
+  filter: blur(0);
+  -webkit-filter: blur(0);
 }
 
 .login-form-control {
@@ -264,6 +266,8 @@ DatePicker:focus {
   height: 100%;
   margin:0px;
   padding:10px;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
 }
 
 .bg{

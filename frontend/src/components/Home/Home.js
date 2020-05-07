@@ -43,10 +43,10 @@ class Home extends Component {
       
       <div>
         <Header/>
-        <div className="Hero-Image2">
+        <div style={{height:'900px'}}className="Hero-Image2">
         <Container>
         
-          <div className="container content">
+          <div style={{paddingTop:'100px'}}className="container content">
               <div className="login-form-container col-lg-4 col-md-4 col-sm-12 offset-lg-4 offset-md-4 border">
                 <div className="login-form-heading input-group pad-top-10 input-group-lg">
                   Enter values to predict!

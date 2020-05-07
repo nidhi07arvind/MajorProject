@@ -48,7 +48,7 @@ class Feature extends Component{
         return(
             <div>
 				<Container>
-			<div className="container content col-lg-200">
+			<div style= {{width:'500px',paddingLeft:'-20px'}} className="container content col-lg-200">
 				<div className=" login-form-container col-lg-50 col-lg-50 col-lg-50">
                 <CanvasJSChart options = {options}
                 onRef={ref => this.chart = ref}
