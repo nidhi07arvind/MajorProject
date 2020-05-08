@@ -92,7 +92,7 @@ class Header2 extends Component {
       {/* <a class="navbar navbar-link" href="/feature-chart">Search</a> */}
       <a class="navbar navbar-link" href="/alerts">Alerts</a>
       <a class="navbar navbar-link" href="/feature-chart">Profile</a>
-      <a class="navbar navbar-link" href="/feature-chart">Logout</a>
+      <a class="navbar navbar-link" href="/login">Logout</a>
       {/* <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Alerts</button>&nbsp;&nbsp;
       <button class="btn btn-outline-success" type="submit">Profile</button> */}
       

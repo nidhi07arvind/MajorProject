@@ -83,7 +83,7 @@ class Header extends Component {
     <form class="form-inline my-2 my-lg-0 ml-auto">
     <a class="navbar navbar-link" href="/alerts">Alerts</a>
       <a class="navbar navbar-link" href="/feature-chart">Profile</a>
-      <a class="navbar navbar-link" href="/feature-chart">Logout</a>
+      <a class="navbar navbar-link" href="/login">Logout</a>
     </form>
   </div>
   

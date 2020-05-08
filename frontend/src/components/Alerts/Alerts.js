@@ -1,79 +1,44 @@
-import React, { Component } from "react";
-import "../../App.css";
-
-import { Redirect } from "react-router";
-import { Button, Dropdown, Row, Col, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import SidePanel from "../SidePanel/SidePanel";
+import React, { Component } from 'react';
 import Header2 from "../Header/Header2";
 
-class Alerts extends Component {
-  constructor() {
-    super();
+class Alert extends Component {
+
+  constructor(props, context) {
+    super(props, context);
     this.state = {
-      dropdown: [],
-    };
-
-
-    this.submitPredict = this.submitPredict.bind(this);
+      isActive: true,
+    }
   }
-  //get the books data from backend
-  componentDidMount() {}
 
-  handleToggel1 = (e) => {
-    e.preventDefault();
-    console.log(e.target);
-    console.log(e.target.id);
-    console.log(e.target.name);
-    // let dropdown = toggle;
-    this.setState({ [e.target.id]: e.target.name });
-  };
-
-  submitPredict = e =>{
-    window.location = "/severity-chart";
+  hideAlert() {
+    this.setState({
+      isActive: false,
+    });
   }
 
   render() {
-    let redirectVar = null;
 
-    // if (!localStorage.getItem("authFlag")) {
-    //   redirectVar = <Redirect to="/login" />;
-    // }
-    return (
-        
-        <div>
-        <Header2/>
-        {/* <div className="Hero-Image2"> */}
-        <Container>&nbsp;
-        
-        <div class="bs-example"> 
-    <div class="alert alert-success alert-dismissible fade show ">
-        <strong>Success!</strong> Your message has been sent successfully.
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-    </div>
-    <div class="alert alert-danger alert-dismissible fade show">
-        <strong>Error!</strong> A problem has been occurred while submitting your data.
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-    </div>
-    <div class="alert alert-warning alert-dismissible fade show">
-        <strong>Warning!</strong> There was a problem with your network connection.
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-    </div>
-    <div class="alert alert-info alert-dismissible fade show">
-        <strong>Info!</strong> Please read the comments carefully.
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-    </div>
-    <div class="alert alert-success alert-dismissible">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <strong>Success!</strong> Indicates a successful or positive action.
-</div>
-</div>
-      </Container>
-      
-      </div>
-      
-    );
+    
+    if (this.state.isActive) {
+      return (
+        <div className="intro">
+        <Header2/>&nbsp;
+        <div class="background-image"></div>
+          <div style={{paddingLeft:'300px',fontSize:'20px',paddingRight:'300px'}}class="alert alert-danger" role="alert">
+           <strong>COVID-19 Alert!</strong> Check with the<a href="https://www.cdc.gov/publichealthgateway/healthdirectories/healthdepartments.html" class="alert-link">state or local authorities</a>where you are, along your route, and at your planned destination to learn about local circumstances and any restrictions that may be in place.
+          </div>
+          <div style={{paddingLeft:'600px',fontSize:'20px'}}class="alert alert-info" role="alert">
+           <strong>Coronavirus Response!</strong> Learn more about<a href="https://www.cdc.gov/coronavirus/2019-nCoV/index.html" class="alert-link">COVID-19</a>
+         </div>
+          <div style={{paddingLeft:'600px',fontSize:'20px'}}class="alert alert-warning" role="alert">
+           <strong>Danger!</strong> Please follow the instructions<a href="https://www.dmv.ca.gov/portal/dmv/detail/pubs/hdbk/idt_hand_emerg" class="alert-link">here</a>incase of special driving situations.
+         </div>
+         
+          </div>
+      );
+    }
+    return <div/>
   }
 }
-//export Home Component
-export default Alerts;
+ 
+export default Alert;

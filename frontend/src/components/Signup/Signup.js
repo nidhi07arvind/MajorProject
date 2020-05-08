@@ -106,10 +106,10 @@ class Signup extends Component {
 
     return (
       <div>
-          <div className="Hero-Image">
+          <div style={{height:'950px'}} className="Hero-Image2">
           <Container>
 
-          <div className="container content">
+          <div style={{paddingTop:'200px'}} className="container content">
             {/* <div className="login-container">
               <div>
                 <p>Sign up for GrubHub</p>

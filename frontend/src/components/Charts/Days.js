@@ -49,8 +49,9 @@ class Days extends Component {
 						min=8;
 			
 			}
-			cursum+=a;
+			
 			a=Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min)) + Math.ceil(min));
+			cursum+=a;
 			s=r[i].label;
 			dps.push({y:a,label:s})
 		}

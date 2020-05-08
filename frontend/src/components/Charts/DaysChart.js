@@ -48,8 +48,9 @@ class DaysChart extends Component {
 						min=8;
 			
 			}
-			cursum+=a;
+			
 			a=Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min)) + Math.ceil(min));
+			cursum+=a;
 			s=r[i].label;
 			dps.push({y:a,label:s})
 		}
@@ -130,19 +131,20 @@ class DaysChart extends Component {
 		}
 		
 		return (
-		<div>
-            <Header2/>&nbsp;
-				<Container>
-				<div style={{paddingTop: '150px'}} className="container content col-lg-200" >
-				<div className=" chart-container col-lg-200 col-lg-400 col-lg-600 ">
-            
-			<CanvasJSChart options = {options} 
-				onRef={ref => this.chart = ref}
-			/>
+			<div className="intro">
+			<Header2/>
+			<div class="background-image"></div>
+				<div className="container chart-body">
+					<div style={{paddingTop:'200px'}} className="row" id="bg">
+						<div className="col-2"></div>
+						<div className="col-8">
+							 <CanvasJSChart options = {options} 	
+							 onRef={ref => this.chart = ref} />
+						</div>
+						<div className="col-2"></div>
+				</div>
 			</div>
 		</div>
-        </Container>
-        </div>
 
 		);
 	}

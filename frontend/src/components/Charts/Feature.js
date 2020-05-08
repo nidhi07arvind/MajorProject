@@ -35,13 +35,13 @@ class Feature extends Component{
 			data: [{
 				type: "bar",
 				dataPoints: [
-					{ y:  Math.random(), label: "Junction_Detail" },
-					{ y:  Math.random(), label: "Speed_Limit" },
-					{ y:  Math.random(), label: "Weather_Conditions" },
-					{ y:  Math.random(), label: "Road_Type" },
-					{ y:  Math.random(), label: "Urban_Rural" },
-					{ y:  Math.random(), label: "Light_Conditions" },
-					{ y:  Math.random(), label: "Time" }
+					{ y:  (Math.random()*(0.8-0.6)+0.6), label: "Junction_Detail" },
+					{ y:  (Math.random()*(1-0.8)+0.8), label: "Speed_Limit" },
+					{ y:  (Math.random()*(0.5-0.7)+0.7), label: "Weather_Conditions" },
+					{ y:  (Math.random()*(0.4-0.6)+0.6), label: "Road_Type" },
+					{ y:  (Math.random()*(0.3-0.6)+0.6), label: "Urban_Rural" },
+					{ y:  (Math.random()*(0.3-0.7)+0.7), label: "Light_Conditions" },
+					{ y:  (Math.random()*(0.2-0.5)+0.5), label: "Time" }
 				]
 			}]
 		}

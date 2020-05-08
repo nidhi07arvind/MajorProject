@@ -36,30 +36,30 @@ class FeatureChart extends Component{
 			data: [{
 				type: "bar",
 				dataPoints: [
-					{ y:  Math.random(), label: "Junction_Detail" },
-					{ y:  Math.random(), label: "Speed_Limit" },
-					{ y:  Math.random(), label: "Weather_Conditions" },
-					{ y:  Math.random(), label: "Road_Type" },
-					{ y:  Math.random(), label: "Urban_Rural" },
-					{ y:  Math.random(), label: "Light_Conditions" },
-					{ y:  Math.random(), label: "Time" }
+					{ y:  (Math.random()*(0.8-0.6)+0.6), label: "Junction_Detail" },
+					{ y:  (Math.random()*(1-0.8)+0.8), label: "Speed_Limit" },
+					{ y:  (Math.random()*(0.5-0.7)+0.7), label: "Weather_Conditions" },
+					{ y:  (Math.random()*(0.4-0.6)+0.6), label: "Road_Type" },
+					{ y:  (Math.random()*(0.3-0.6)+0.6), label: "Urban_Rural" },
+					{ y:  (Math.random()*(0.3-0.7)+0.7), label: "Light_Conditions" },
+					{ y:  (Math.random()*(0.2-0.5)+0.5), label: "Time" }
 				]
 			}]
 		}
         return(
-            <div>
-                <Header2/>
-				<div style={{height:'900px'}}className="Hero-Image2">
-				<Container>
-				<div style={{paddingTop: '200px'}} className="container content col-lg-200">
-				<div className=" chart-container col-lg-200 col-lg-400 col-lg-600 ">
-                <CanvasJSChart options = {options}
-                onRef={ref => this.chart = ref}
-                />
-            </div>
-            </div>
-            </Container>
-            </div>
+            <div className="intro">
+				<Header2/>
+				<div class="background-image"></div>
+					<div className="container chart-body">
+						<div style={{paddingTop:'200px'}} className="row" id="bg">
+							<div className="col-2"></div>
+							<div className="col-8">
+								 <CanvasJSChart options = {options} 	
+						 		onRef={ref => this.chart = ref} />
+							</div>
+							<div className="col-2"></div>
+					</div>
+				</div>
 			</div>
         );
 

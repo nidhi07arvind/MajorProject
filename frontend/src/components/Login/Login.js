@@ -41,6 +41,8 @@ class Login extends Component {
 
     var username = "admin";
     var password = "admin";
+    var username1 = "admin1";
+    var password1 = "admin1";
 
     var data = {
       Email: this.state.Email,
@@ -96,10 +98,10 @@ class Login extends Component {
     }
     return (
       <div>
-        <div className="Hero-Image">
+        <div style={{height:'950px'}} className="Hero-Image2">
         <Container>
         
-          <div className="container content">
+          <div style={{paddingTop:'200px'}}className="container content">
             {/* <div className="login-container">
               <div>
                 <p font-size>Log in to DriveSafe</p>
@@ -109,7 +111,7 @@ class Login extends Component {
               </div> */}
               <div className="login-form-container col-lg-4 col-md-4 col-sm-12 offset-lg-4 offset-md-4 border">
                 <div className="login-form-heading input-group pad-top-10 input-group-lg">
-                  Account Login
+                  Login to DriveSafe
                 </div>
                 <hr />
                 
